@@ -1,0 +1,21 @@
+package stepDefinations;
+
+import java.io.IOException;
+
+import io.cucumber.java.After;
+import utils.testContextSetup;
+
+public class hooks 
+{
+	testContextSetup tcs;
+	public hooks(testContextSetup testContextSetup)
+	{
+		this.tcs=testContextSetup;
+	}
+	@After
+	public void afterScenario() throws IOException
+	{
+		tcs.testBase.webDriverManager().quit();
+	}
+
+}

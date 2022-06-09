@@ -1,0 +1,12 @@
+Feature: Search and place order
+
+Scenario Outline: Search experience in home and offer page
+Given Verify user is on green card landing page
+When User searched with shortname <name> and extracted actual name of product
+Then User searched for <name> same shortname in offers page where the product exists
+And Validate the names are same or not
+
+Examples:
+|name|
+|tom |
+|beet|

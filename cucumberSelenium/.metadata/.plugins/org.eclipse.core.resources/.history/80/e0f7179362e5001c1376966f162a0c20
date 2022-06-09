@@ -1,0 +1,26 @@
+package pageObjects;
+
+import org.openqa.selenium.WebDriver;
+
+public class pageObjectManager 
+{
+	public landingPage lpg;
+	public WebDriver driver;
+	
+	public pageObjectManager(WebDriver driver)
+	{
+		this.driver=driver;
+	}
+	
+	public void getLandingPage()
+	{
+		lpg=new landingPage(driver);
+		return lpg;
+	}
+	
+	public void getOfferPage()
+	{
+		opg=new landingPage(driver);
+		return opg;
+	}
+}

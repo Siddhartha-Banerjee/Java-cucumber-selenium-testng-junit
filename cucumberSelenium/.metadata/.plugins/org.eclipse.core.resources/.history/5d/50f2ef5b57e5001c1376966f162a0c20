@@ -1,0 +1,19 @@
+package pageObjects;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
+public class landingPage 
+{
+	public landingPage(WebDriver driver)
+	{
+		
+	}
+	By search=By.xpath("/html/body/div/div/header/div/div[2]/form/input");
+	By productName=By.xpath("/html/body/div/div/div[1]/div/div/h4");
+	
+	public void searchItem(String name)
+	{
+		testContextSetup.driver.findElement(search).sendKeys(name);
+	}
+}

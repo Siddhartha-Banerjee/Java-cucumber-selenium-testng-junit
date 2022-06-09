@@ -1,0 +1,15 @@
+package utils;
+
+import org.openqa.selenium.WebDriver;
+
+public class testContextSetup 
+{
+	public WebDriver driver;
+    public String prodname;
+    public pageObjects.pageObjectManager pageObjectManager;
+    
+    public testContextSetup()
+    {
+    	pageObjectManager=new pageObjects.pageObjectManager(driver);
+    }
+}

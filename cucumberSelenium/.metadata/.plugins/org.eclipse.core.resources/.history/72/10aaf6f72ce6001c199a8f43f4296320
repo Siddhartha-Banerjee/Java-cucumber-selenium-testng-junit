@@ -1,0 +1,32 @@
+package pageObjects;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
+//encapsulation
+public class checkoutPage 
+{
+	public WebDriver driver;
+	public checkoutPage(WebDriver driver)
+	{
+		this.driver=driver;
+	}
+	private By cartbag=By.xpath("/html/body/div/div/header/div/div[3]/a[4]/img");
+	private By checkout=By.xpath("/html/body/div/div/header/div/div[3]/div[2]/div[2]/button");
+	
+	public void searchItem(String name)
+	{
+		driver.findElement(search).sendKeys(name);
+	}
+	
+	public String getSearchItem()
+	{
+		String s=driver.findElement(productName).getText();
+		return s;
+	}
+	
+	public void selectTopDealsPage()
+	{
+		driver.findElement(topDealPage).click();
+	}
+}

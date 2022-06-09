@@ -1,0 +1,9 @@
+package pageObjects;
+
+import org.openqa.selenium.By;
+
+public class landingPage 
+{
+	By search=By.xpath("/html/body/div/div/header/div/div[2]/form/input");
+	By productName=By.xpath("/html/body/div/div/div[1]/div/div/h4");
+}

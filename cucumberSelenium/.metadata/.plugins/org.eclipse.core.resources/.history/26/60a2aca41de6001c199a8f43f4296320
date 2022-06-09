@@ -1,0 +1,71 @@
+package stepDefinations;
+
+import java.util.Iterator;
+import java.util.Set;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
+
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+import pageObjects.landingPage;
+import pageObjects.offersPage;
+import utils.testContextSetup;
+
+public class offerPageStepDefination
+{
+	
+    public WebDriver driver;
+    public String prodname;
+    public String offprodname;
+    testContextSetup testContextSetup;
+	
+    public offerPageStepDefination(testContextSetup testContextSetup)
+    {
+    	this.testContextSetup=testContextSetup;
+    }
+    
+    public void switchToOfferPage()
+	{
+    	//landingPage lp=new landingPage(testContextSetup.driver);
+    	landingPage lp=testContextSetup.pageObjectManager.getLandingPage();
+		if(!testContextSetup.driver.getCurrentUrl().equals("https://rahulshettyacademy.com/seleniumPractise/#/offers"))
+		{
+			//testContextSetup.driver.findElement(By.xpath("/html/body/div/div/header/div/div[3]/a[2]")).click();
+		    lp.selectTopDealsPage();
+		    testContextSetup.genericUtils.switchWindowToChild();
+//			Set<String> s1=testContextSetup.driver.getWindowHandles();
+//			Iterator<String> i1=s1.iterator();
+//			String parent=i1.next();
+//			String child=i1.next();
+//			testContextSetup.driver.switchTo().window(child);
+		}
+	}
+    
+	
+	@Then("User searched for {string} same shortname in offers page where the product exists")
+	public void user_searched_for_same_shortname_in_offers_page_where_the_product_exists(String shortname2) throws InterruptedException 
+	{
+		switchToOfferPage();
+		offersPage op=new offersPage(testContextSetup.driver);
+		op.searchItem(shortname2);
+		
+	    //testContextSetup.driver.findElement(By.xpath("//*[@id=\"search-field\"]")).sendKeys(shortname2);
+	    Thread.sleep(1000);
+	    //offprodname=testContextSetup.driver.findElement(By.xpath("/html/body/div/div/div/div/div/div/div/table/tbody/tr/td[1]")).getText();
+	    
+	    offprodname=op.getSearchItem();
+	}
+	
+	
+	@And("Validate the names are same or not")
+	public void validate_the_names_are_same_or_not() 
+	{
+	    Assert.assertEquals(testContextSetup.prodname, offprodname);
+	}
+	
+}

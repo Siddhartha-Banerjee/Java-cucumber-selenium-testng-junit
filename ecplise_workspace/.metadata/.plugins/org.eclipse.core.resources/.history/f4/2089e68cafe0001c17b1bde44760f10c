@@ -1,0 +1,61 @@
+package stepDefinations;
+
+import java.util.List;
+
+import io.cucumber.datatable.DataTable;
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+
+public class stepDefination
+{
+	
+//from console can get this implementation code if you dont have
+	
+	@Given("User is on landing page")
+	public void user_is_on_landing_page()
+	{
+		//selenium code
+		System.out.println("navigated to landing page");
+	}
+	
+	/*
+	@When("User login into application with username and password")
+	public void user_login_into_application_with_username_and_password()
+	{
+		System.out.println("user entered credentials");
+	}
+	*/
+	
+	//for log in
+	@When("User login into application with {string} and password {string}")
+	public void user_login_into_application_with_and_password(String string, String string2) 
+	{
+	    System.out.println("username:"+string+" password: "+string2);
+	}
+
+
+	@When("User sign up with following details")
+	public void user_sign_up_with_following_details(io.cucumber.datatable.DataTable dataTable) 
+	{
+//		List<String> details=dataTable.asList();
+//		String s=details.get(0);
+//		System.out.println("user entered required details for sign up"+s);
+//	    throw new io.cucumber.java.PendingException();
+	}
+	
+	
+	@Then("Home page is populated")
+	public void home_page_is_populated()
+	{
+		System.out.println("home page populated");
+	}
+	
+	@And("Cards are displayed {string}")
+	public void cards_are_displayed(String s)
+	{
+		System.out.println("cards displayed "+s);
+	}
+
+}

@@ -1,0 +1,17 @@
+package utils;
+
+import java.util.Iterator;
+import java.util.Set;
+
+public class genericUtils 
+{
+	public void switchWindowToChild()
+	{
+		Set<String> s1=testContextSetup.driver.getWindowHandles();
+		Iterator<String> i1=s1.iterator();
+		String parent=i1.next();
+		String child=i1.next();
+		testContextSetup.driver.switchTo().window(child);
+	}
+
+}

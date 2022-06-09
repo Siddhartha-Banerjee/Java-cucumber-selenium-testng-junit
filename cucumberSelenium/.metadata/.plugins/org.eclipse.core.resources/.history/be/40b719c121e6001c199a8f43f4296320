@@ -1,0 +1,26 @@
+package utils;
+
+import java.io.FileInputStream;
+import java.util.Properties;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class testBase 
+{
+	public WebDriver driver;
+	
+	public WebDriver webDriverManager()
+	{
+		FileInputStream fis=new FileInputStream(E:\cucumber\cucumberSelenium\cucumberSeleniumTesting\src\test\resources\global.properties);
+		Properties prop=new Properties();
+		
+		if(driver==null)
+		{	
+			System.setProperty("webdriver.chrome.driver", "E:\\cucumber\\driver\\chromedriver.exe");
+			driver=new ChromeDriver();
+			driver.get("https://rahulshettyacademy.com/seleniumPractise/#/");
+		}
+	    return driver;
+	}
+}

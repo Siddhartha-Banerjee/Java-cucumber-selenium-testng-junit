@@ -1,0 +1,47 @@
+package stepDefinations;
+
+import java.util.Iterator;
+import java.util.Set;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
+
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+
+public class landingPageStepDefination 
+{
+	
+    public WebDriver driver;
+    public String prodname;
+    public String offprodname;
+	
+	@Given("Verify user is on green card landing page")
+	public void verify_user_is_on_green_card_landing_page() throws InterruptedException 
+	{
+		System.setProperty("webdriver.chrome.driver", "E:\\cucumber\\driver\\chromedriver.exe");
+		driver=new ChromeDriver();
+	    driver.get("https://rahulshettyacademy.com/seleniumPractise/#/");
+	    Thread.sleep(5000);
+	}
+	
+	@When("User searched with shortname {string} and extracted actual name of product")
+	public void user_searched_with_shortname_and_extracted_actual_name_of_product(String shortname) throws InterruptedException 
+	{
+	    try {
+			driver.findElement(By.xpath("/html/body/div/div/header/div/div[2]/form/input")).sendKeys(shortname);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	    Thread.sleep(3000);
+	    prodname=driver.findElement(By.xpath("/html/body/div/div/div[1]/div/div/h4")).getText().split("-")[0].trim();
+	    System.out.println("product name extracted from home page "+prodname);
+	}
+	
+	
+	
+}

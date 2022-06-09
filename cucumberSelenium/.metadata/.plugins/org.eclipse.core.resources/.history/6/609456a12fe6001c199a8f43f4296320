@@ -1,0 +1,41 @@
+package stepDefinations;
+
+import java.util.Iterator;
+import java.util.Set;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
+
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+import pageObjects.landingPage;
+import utils.testBase;
+import utils.testContextSetup;
+
+public class checkoutPageStepDefination
+{
+	
+    public WebDriver driver;
+    public String prodname;
+    public String offprodname;
+    testContextSetup testContextSetup;
+    public pageObjects.checkoutPage checkoutPage;
+    public landingPage lp;
+    
+    public checkoutPageStepDefination(testContextSetup testContextSetup)
+    {
+    	this.testContextSetup=testContextSetup;
+    }
+	
+	@Then("And Verify user have ability to apply promo and place the order")
+	public void verify_user_have_ability_to_apply_promo()
+	{
+		checkoutPage=testContextSetup.pageObjectManager.getCheckoutPage();
+	}
+	
+	
+}

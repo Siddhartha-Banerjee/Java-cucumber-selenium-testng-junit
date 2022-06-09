@@ -1,0 +1,13 @@
+Feature: Place order
+
+Scenario Outline: Search experience in home and offer page
+Given Verify user is on green card landing page
+When User searched with shortname <name> and extracted actual name of product
+And Added "3" items of the selected product to cart
+Then User proceeds to checkout and validate the <name> items in checkout page
+And Verify user have ability to apply promo and place the order
+
+Examples:
+|name|
+|tom |
+|beet|

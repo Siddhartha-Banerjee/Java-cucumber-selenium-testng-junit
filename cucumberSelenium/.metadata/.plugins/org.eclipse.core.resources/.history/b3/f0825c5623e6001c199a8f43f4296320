@@ -1,0 +1,19 @@
+package utils;
+
+import org.openqa.selenium.WebDriver;
+
+public class testContextSetup 
+{
+	public WebDriver driver;
+    public String prodname;
+    public pageObjects.pageObjectManager pageObjectManager;
+	public testBase testBase;
+	public genericUtils genericUtils;
+	
+    public testContextSetup()
+    {
+    	testBase=new testBase();
+    	pageObjectManager=new pageObjects.pageObjectManager(testBase.webDriverManager());
+    	genericUtils=new genericUtils(testBase.webDriverManager());
+    }
+}

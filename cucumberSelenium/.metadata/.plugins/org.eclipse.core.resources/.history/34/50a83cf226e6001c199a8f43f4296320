@@ -1,0 +1,19 @@
+package stepDefinations;
+
+import io.cucumber.java.After;
+import utils.testContextSetup;
+
+public class hooks 
+{
+	testContextSetup tcs;
+	public hooks(testContextSetup testContextSetup)
+	{
+		this.tcs=testContextSetup;
+	}
+	@After
+	public void afterScenario()
+	{
+		
+	}
+
+}
